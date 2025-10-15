@@ -16,6 +16,26 @@
         width: 100%;
         table-layout: fixed;
     }
+
+    /* Estilos normais (desktop) — tamanho padrão */
+    .responsive-table th {
+        font-size: 1rem; /* ou o tamanho padrão do seu tema */
+        text-align: center;
+    }
+
+    /* Estilos para dispositivos móveis (até 768px) */
+    @media (max-width: 768px) {
+        .responsive-table th {
+            font-size: 0.8rem !important;
+        }
+
+        /* Se quiser ajustar tamanhos específicos por coluna no mobile: */
+        .responsive-table th:nth-child(1) { font-size: 0.85rem !important; } /* Data */
+        .responsive-table th:nth-child(2) { font-size: 0.7rem !important; }  /* Horário */
+        .responsive-table th:nth-child(3),
+        .responsive-table th:nth-child(4),
+        .responsive-table th:nth-child(5) { font-size: 0.75rem !important; } /* Sala, Tipo, Ações */
+    }
 </style>
 <section class="content-header">
     <div class="container-fluid">
@@ -27,7 +47,7 @@
     </div>
 </section>
 <div class="card">
-    <div class="card-body">
+    <div class="card-body p-0">
 
         @if ($resetPassWord)
             <div class="alert alert-success">
@@ -78,61 +98,57 @@
             </div>
         </div> --}}
 
-        <table class="table table-striped table-hover" id="_tabela-horarios-usuario" style="width:100%">
-            <thead>
-                <tr>
-                    <th style="text-align: center">Data</th>
-                    <th style="text-align: center">Horário</th>
-                    <th style="text-align: center">Sala</th>
-                    <th style="text-align: center">Tipo de agendamento</th>
-                    {{-- <th>Status</th> --}}
-                    {{-- @if (auth()->user()->is_admin == 1) --}}
-                    <th style="text-align: center">Ações</th>
-                    {{-- @endif --}}
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($schedules as $schedule)
-                @php
-                    $showStyle = false;
-                    if (count($arrDatas) > 0 && isset($arrDatas[$schedule->data_nao_faturada_id])) {
-                        $showStyle = true;
-                    }
-                @endphp
-                <tr @if($showStyle) style="background-color: #ffc107" @endif>
-                    <td style="text-align: center">{{ \Carbon\Carbon::parse($schedule->date)->isoFormat('dddd, DD \d\e MMMM \d\e Y') }}</td>
-                    <td style="text-align: center">{{ $schedule->hour->hour }}</td>
-                    <td style="text-align: center">{{ $schedule->room->name }}</td>
-                    <td style="text-align: center">{{ $schedule->tipo }}</td>
-                    {{-- <td>{{ $schedule->status }}</td> --}}
-                    {{-- @if (auth()->user()->is_admin == 1) --}}
-                    <td style="text-align: center">
-                        <div class="btn-group dropleft">
-                            <a class="dropdown-toggle seta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                {{-- <a href="#" onclick="naoFaturarAgendamento('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Não faturar agendamento"><i class="fas fa-coins text-danger"></i> Não faturar agendamento</a> --}}
-                                @if ($schedule->status == 'Ativo' || auth()->user()->is_admin == 1)
-                                {{-- <a href="#" onclick="faturarFinalizarAtendimento('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Faturar/Finalizar agendamento"><i class="fas fa-hand-holding-usd text-warning"></i> Faturar/Finalizar agendamento</a> --}}
-                                <a href="javascript:void(0)" onclick="modalGlobalOpen('{{ route('schedule.modal-cancelar-agendamento-fixo', ['schedule_id' => $schedule->id]) }}', 'Cancelar Agendamento Fixo')" class="dropdown-item btn btn-sm" title="Cancelar agendamento"><i class="fas fa-trash text-danger"></i> Cancelar agendamento</a>
-                                {{-- <a href="#" onclick="cancelarAgendamentoUser('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Cancelar agendamento"><i class="fas fa-trash text-danger"></i> Cancelar agendamento</a> --}}
-                                <a href="#" onclick="mudarTipo('{{ csrf_token() }}', {{ $schedule->id }}, '{{ $schedule->tipo == 'Fixo' ? 'Avulso' : 'Fixo' }}', '{{ \Carbon\Carbon::parse($schedule->date)->isoFormat('dddd, DD \d\e MMMM \d\e Y') }}', '{{ $schedule->hour->hour }}')" class="dropdown-item btn btn-sm" title="{{ $schedule->tipo == 'Fixo' ? 'Mudar para Avulso' : 'Mudar para Fixo' }}"><i class="fas fa-exchange-alt text-secondary"></i> {{ $schedule->tipo == 'Fixo' ? 'Mudar para Avulso' : 'Mudar para Fixo' }}</a>
-                                @else
-                                <a href="#" class="dropdown-item btn btn-sm" title="Nenhuma ação disponível"><i class="fas fa-ban text-secondary"></i> Nenhuma ação disponível</a>
-                                @endif
+        <div class="table-responsive">
+            <table class="table table-striped table-hover responsive-table w-auto" id="_tabela-horarios-usuario">
+                <thead>
+                    <tr>
+                        <th class="text-center">Data</th>
+                        <th class="text-center">Horário</th>
+                        <th class="text-center">Sala</th>
+                        <th class="text-center">Tipo</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($schedules as $schedule)
+                    @php
+                        $showStyle = false;
+                        if (count($arrDatas) > 0 && isset($arrDatas[$schedule->data_nao_faturada_id])) {
+                            $showStyle = true;
+                        }
+                    @endphp
+                    <tr @if($showStyle) style="background-color: #ffc107" @endif>
+                        <td style="text-align: center">{{ \Carbon\Carbon::parse($schedule->date)->isoFormat('dddd, DD/MM/YYYY') }}</td>
+                        <td style="text-align: center">{{ \Carbon\Carbon::parse($schedule->hour->hour)->format('H:i') }}</td>
+                        <td style="text-align: center">{{ $schedule->room->name }}</td>
+                        <td style="text-align: center">{{ $schedule->tipo }}</td>
+                        <td style="text-align: center">
+                            <div class="btn-group dropleft">
+                                <a class="dropdown-toggle seta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    {{-- <a href="#" onclick="naoFaturarAgendamento('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Não faturar agendamento"><i class="fas fa-coins text-danger"></i> Não faturar agendamento</a> --}}
+                                    @if ($schedule->status == 'Ativo' || auth()->user()->is_admin == 1)
+                                    {{-- <a href="#" onclick="faturarFinalizarAtendimento('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Faturar/Finalizar agendamento"><i class="fas fa-hand-holding-usd text-warning"></i> Faturar/Finalizar agendamento</a> --}}
+                                    <a href="javascript:void(0)" onclick="modalGlobalOpen('{{ route('schedule.modal-cancelar-agendamento-fixo', ['schedule_id' => $schedule->id]) }}', 'Cancelar Agendamento Fixo')" class="dropdown-item btn btn-sm" title="Cancelar agendamento"><i class="fas fa-trash text-danger"></i> Cancelar agendamento</a>
+                                    {{-- <a href="#" onclick="cancelarAgendamentoUser('{{ csrf_token() }}', {{ $schedule->id }})" class="dropdown-item btn btn-sm" title="Cancelar agendamento"><i class="fas fa-trash text-danger"></i> Cancelar agendamento</a> --}}
+                                    <a href="#" onclick="mudarTipo('{{ csrf_token() }}', {{ $schedule->id }}, '{{ $schedule->tipo == 'Fixo' ? 'Avulso' : 'Fixo' }}', '{{ \Carbon\Carbon::parse($schedule->date)->isoFormat('dddd, DD \d\e MMMM \d\e Y') }}', '{{ $schedule->hour->hour }}')" class="dropdown-item btn btn-sm" title="{{ $schedule->tipo == 'Fixo' ? 'Mudar para Avulso' : 'Mudar para Fixo' }}"><i class="fas fa-exchange-alt text-secondary"></i> {{ $schedule->tipo == 'Fixo' ? 'Mudar para Avulso' : 'Mudar para Fixo' }}</a>
+                                    @else
+                                    <a href="#" class="dropdown-item btn btn-sm" title="Nenhuma ação disponível"><i class="fas fa-ban text-secondary"></i> Nenhuma ação disponível</a>
+                                    @endif
+                                </div>
                             </div>
-                        </div>                        
-                    </td>                        
-                    {{-- @endif --}}
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="5">Nenhum horário cadastrado</td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="5">Nenhum horário cadastrado</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
         <div class="clearfix">&nbsp;</div>
         @if (auth()->user()->is_admin == 1)
             <fieldset>
@@ -253,5 +269,21 @@
         @endif
     </div>
 </div>
+<style>
+/* Garante que o container da tabela possa rolar */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 
+/* Evita que colunas fiquem muito estreitas */
+.table-responsive table {
+    min-width: 600px; /* ajuste conforme sua necessidade */
+}
+
+/* Corrige comportamento em cards do AdminLTE */
+.card-body.p-0 .table-responsive {
+    margin: 0;
+}
+</style>
 @endsection
