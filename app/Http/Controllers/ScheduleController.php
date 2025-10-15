@@ -26,14 +26,15 @@ class ScheduleController extends Controller
         $username = User::find($id)->name;
         $titulo = !is_null($userId) && $userId != auth()->user()->id ? 'Horários Ativos - ' . $username : 'Meus horários Ativos';
 
-        $schedules = ScheduleModel::where([
-            'user_id' => $id
-        ])
-        ->whereMonth('date', '>=', Carbon::now()->format('m'))
-        ->whereYear('date', now()->year)
-        ->orderBy('date', 'ASC')
-        ->orderBy('hour_id', 'ASC')
-        ->get();
+        $schedules = ScheduleModel::with('hour')
+                    ->join('hours', 'schedules.hour_id', '=', 'hours.id') // Ajuste os nomes das tabelas se necessário
+                    ->where('schedules.user_id', $id)
+                    ->whereMonth('schedules.date', '>=', Carbon::now()->format('m'))
+                    ->whereYear('schedules.date', now()->year)
+                    ->orderBy('schedules.date', 'ASC')
+                    ->orderBy('hours.hour', 'ASC') // Ordena pelo campo "hour" da tabela hours
+                    ->select('schedules.*') // Evita conflitos de colunas duplicadas
+                    ->get();
 
         foreach ($schedules as $item) {
 
