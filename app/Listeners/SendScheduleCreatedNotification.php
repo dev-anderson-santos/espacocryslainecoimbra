@@ -42,6 +42,6 @@ class SendScheduleCreatedNotification
 
         Notification::route('mail', $settings->email_notificacao)
             ->notify((new SchedulesSummaryNotification())
-            ->delay(now()));
+            ->delay(now()->addMinutes(5)));
     }
 }
