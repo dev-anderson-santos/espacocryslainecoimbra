@@ -63,7 +63,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Enviar notificação de agendamento para o e-mail abaixo:</label>
-                        <input type="email" name="email_notificacao" class="form-control" value="{{-- {{ $setting->email_notificacao ?? '' }} --}}">
+                        <input type="email" name="email_notificacao" class="form-control" value="{{ $setting->email_notificacao ?? '' }}">
                     </div>
                 </div>
             </div>

@@ -52,6 +52,7 @@ class SettingsController extends Controller
                 'valor_avulso' => $dados['valor_avulso'],
                 'hora_fechamento' => $dados['hora_fechamento'],
                 'dia_fechamento' => $dados['dia_fechamento'],
+                'email_notificacao' => $dados['email_notificacao']
             ]);
 
             $this->updateSchedulesPrice($settings);
@@ -61,7 +62,7 @@ class SettingsController extends Controller
                 'settings_id' => $settings->id,
                 'valor_fixo' => $settings->valor_fixo,
                 'valor_avulso' => $settings->valor_avulso,
-                'dia_fechamento' => $settings->dia_fechamento,
+                'email_notificacao' => $settings->email_notificacao,
             ]);
 
             DB::commit();
