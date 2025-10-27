@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Events\ScheduleCreated;
 use App\Models\Historic;
 use App\Models\ScheduleModel;
 
@@ -30,6 +31,8 @@ class ScheduleObserver
             'last_login_time' => now(),
             'last_login_ip' => request()->getClientIp(),
         ]);
+
+        event(new ScheduleCreated($scheduleModel));
     }
 
     /**

@@ -18,7 +18,8 @@ class SettingsModel extends Model
         'valor_avulso',
         'hora_fechamento',
         'dia_fechamento',
-        'data_vencimento'
+        'data_vencimento',
+        'email_notificacao'
     ];
 
     /**

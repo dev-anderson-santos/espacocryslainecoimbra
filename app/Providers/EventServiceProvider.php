@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\ScheduleCreated;
 use App\Listeners\LoginListener;
+use App\Listeners\SendScheduleCreatedNotification;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -21,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         Login::class => [
             LoginListener::class
+        ],
+        ScheduleCreated::class => [
+            SendScheduleCreatedNotification::class
         ]
     ];
 
