@@ -27,36 +27,34 @@ class SchedulesSummaryNotification extends Notification implements ShouldQueue
             ->get()
             ->groupBy('user_id');
 
-        $msg = "Novos agendamentos foram registrados:\n\n";
+        $mail = (new MailMessage)
+            ->subject('📆 Novos agendamentos registrados')
+            ->greeting('Olá!')
+            ->line('Novos agendamentos foram registrados hoje:')
+            ->line('');
 
         foreach ($agendamentos as $userId => $items) {
-
             $profissional = $items->first()->user->name ?? 'Sem nome';
-
             $fixos = $items->where('tipo', 'fixo');
             $avulsos = $items->where('tipo', 'avulso');
 
-            $msg .= "Profissional {$profissional}\n";
-            $msg .= "Agendamentos Fixos: " . $fixos->count() . "\n";
+            $mail->line("👤 Profissional: **{$profissional}**");
+            $mail->line("Fixos: {$fixos->count()} | Avulsos: {$avulsos->count()}");
 
             foreach ($fixos as $ag) {
-                $msg .= $ag->date->format('d/m/Y') . " | Sala " . $ag->room->name . " | " . Carbon::parse($ag->hour->hour)->format('H:i') . "\n";
+                $mail->line("🗓️ {$ag->date->format('d/m/Y')} - Sala {$ag->room->name} - " .
+                            Carbon::parse($ag->hour->hour)->format('H:i'));
             }
-
-            $msg .= "Agendamentos Avulsos: " . $avulsos->count() . "\n";
-
             foreach ($avulsos as $ag) {
-                $msg .= $ag->date->format('d/m/Y') . " | Sala " . $ag->room->name . " | " . Carbon::parse($ag->hour->hour)->format('H:i') . "\n";
+                $mail->line("🗓️ {$ag->date->format('d/m/Y')} - Sala {$ag->room->name} - " .
+                            Carbon::parse($ag->hour->hour)->format('H:i'));
             }
 
-            $msg .= "\n";
+            $mail->line(''); // separa visualmente
         }
 
-        return (new MailMessage)
-            ->subject('📆 Novos agendamentos registrados')
-            ->greeting('Olá!')
-            ->line('')
-            ->line(new \Illuminate\Support\HtmlString(nl2br(e($msg))))
-            ->salutation('Atenciosamente, ' . config('app.name'));
+        $mail->salutation('Atenciosamente, ' . config('app.name'));
+
+        return $mail;
     }
 }
