@@ -22,8 +22,8 @@ class SchedulesSummaryNotification extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $agendamentos = ScheduleModel::whereDate('created_at', today())
-            ->with(['user', 'room', 'hour'])
+        $agendamentos = ScheduleModel::/* whereDate('created_at', today())
+            -> */with(['user', 'room', 'hour'])
             ->get()
             ->groupBy('user_id');
 
@@ -54,6 +54,6 @@ class SchedulesSummaryNotification extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->subject('📆 Novos agendamentos registrados')
-            ->line(nl2br($msg));
+            ->view('emails.schedules-summary', ['msg' => $msg]);
     }
 }
