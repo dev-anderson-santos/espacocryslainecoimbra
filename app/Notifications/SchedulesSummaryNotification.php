@@ -54,6 +54,11 @@ class SchedulesSummaryNotification extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->subject('📆 Novos agendamentos registrados')
-            ->view('emails.schedules-summary', ['msg' => $msg]);
+            ->subject('📆 Novos agendamentos registrados')
+            ->greeting('Olá!')
+            ->line('Novos agendamentos foram registrados hoje:')
+            ->line('')
+            ->line($msg)
+            ->salutation('Atenciosamente, ' . config('app.name'));
     }
 }
