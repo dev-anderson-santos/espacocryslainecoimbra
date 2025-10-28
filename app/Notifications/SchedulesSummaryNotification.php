@@ -56,7 +56,7 @@ class SchedulesSummaryNotification extends Notification implements ShouldQueue
             ->subject('📆 Novos agendamentos registrados')
             ->greeting('Olá!')
             ->line('')
-            ->line($msg)
+            ->line(new \Illuminate\Support\HtmlString(nl2br(e($msg))))
             ->salutation('Atenciosamente, ' . config('app.name'));
     }
 }
