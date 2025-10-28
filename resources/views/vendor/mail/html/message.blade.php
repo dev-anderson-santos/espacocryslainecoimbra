@@ -9,7 +9,7 @@
 @endslot
 
 {{-- Body --}}
-{{ $slot }}
+{!! $slot !!}
 
 {{-- Subcopy --}}
 @isset($subcopy)
