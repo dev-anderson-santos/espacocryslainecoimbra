@@ -42,6 +42,6 @@ class SendScheduleCreatedNotification implements ShouldQueue
 
         Notification::route('mail', $settings->email_notificacao)
             ->notify((new SchedulesSummaryNotification())
-            ->delay(now()->addMinutes(5)));
+            ->delay(now()->addMinute()));
     }
 }
