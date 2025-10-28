@@ -23,9 +23,9 @@ class SendScheduleCreatedNotification implements ShouldQueue
 
         $schedule = $event->schedule;
 
-        if ($schedule->creator && $schedule->creator->is_admin) {
-            return;
-        }
+        // if ($schedule->creator && $schedule->creator->is_admin) {
+        //     return;
+        // }
 
         Notification::route('mail', $settings->email_notificacao)
             ->notify((new SchedulesSummaryNotification($schedule))
