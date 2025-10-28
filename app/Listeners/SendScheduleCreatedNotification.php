@@ -11,25 +11,12 @@ use Illuminate\Support\Facades\Notification;
 
 class SendScheduleCreatedNotification implements ShouldQueue
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+    use InteractsWithQueue;
 
-    /**
-     * Handle the event.
-     *
-     * @param  \App\Events\ScheduleCreated  $event
-     * @return void
-     */
     public function handle(ScheduleCreated $event)
     {
         $settings = SettingsModel::first();
+
         if (!$settings || !$settings->email_notificacao) {
             return;
         }
@@ -41,7 +28,7 @@ class SendScheduleCreatedNotification implements ShouldQueue
         }
 
         Notification::route('mail', $settings->email_notificacao)
-            ->notify((new SchedulesSummaryNotification())
-            ->delay(now()->addMinute()));
+            ->notify((new SchedulesSummaryNotification($schedule))
+            ->delay(now()->addSeconds(5)));
     }
 }
