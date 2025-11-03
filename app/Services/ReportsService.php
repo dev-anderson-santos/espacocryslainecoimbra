@@ -8,7 +8,7 @@ class ReportsService
     public static function gerarRelatorioCobranca($dados)
     {
 
-        $nomeArquivo = 'EspacoJuntos_relatorio_cobranca_mensal'.'-'.date('dmYhis');
+        $nomeArquivo = 'relatorio_cobranca_mensal'.'-'.date('dmYhis');
         $clientes = [
             'clientes' => array_values($dados['clientes']->toArray()),
             'mes' => $dados['_month'],

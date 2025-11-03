@@ -166,7 +166,7 @@
                 </div>
                 <div class="pull-left estado-bahia">
                     <div class="pull-left">
-                        <img src="images/logo.jpeg" height="100"/>
+                        <img src="images/logo_email.jpeg" height="100"/>
                     </div>
                     <div class="pull-left texto-estado-cabecalho">
                         <i>{{ $titulo }} - {{ getMonths($mes) }} de {{ $ano }}</i><br>
