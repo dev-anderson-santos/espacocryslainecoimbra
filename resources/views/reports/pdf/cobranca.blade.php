@@ -68,9 +68,7 @@
     <p>
         Total de Profissionais: {{ count($clientes) }}<br>
         Total de Agendamentos: {{ array_sum(Arr::pluck($clientes, 'concluidosAgendamentosMesAnterior')) }}<br>
-        Total de Taxas: R$ {{ number_format(count($clientes) * 20, 2, ',', '.') }}<br>
-        Total a Receber sem taxa: R$ {{ number_format(array_sum(Arr::pluck($clientes, 'totalMesAnterior')), 2, ',', '.') }}<br>        
-        Total a Receber com taxa: R$ {{ number_format(array_sum(Arr::pluck($clientes, 'totalMesAnteriorComTaxa')), 2, ',', '.') }}<br>       
+        Total a Receber: R$ {{ number_format(array_sum(Arr::pluck($clientes, 'totalMesAnterior')), 2, ',', '.') }}<br>     
     </p>
 </div>
 @endsection
