@@ -74,8 +74,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'nao-responda@espacocultivar.com'),
-        'name' => env('MAIL_FROM_NAME', 'Cultivar Espaço'),
+        'address' => env('MAIL_FROM_ADDRESS', 'nao-responda@espacocryslainecoimbraagendamentos.com'),
+        'name' => env('MAIL_FROM_NAME', 'Espaço Cryslaine Coimbra Agendamentos'),
     ],
 
     /*

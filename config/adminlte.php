@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => env('APP_NAME', 'Cultivar Espaço'),
+    'title' => env('APP_NAME', 'Espaço Cryslaine Coimbra'),
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<strong>Cultivar</strong> Espaço',
+    'logo' => '<strong>Espaço Cryslaine</strong>',
     'logo_img' => 'vendor/adminlte/dist/img/logo.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,

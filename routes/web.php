@@ -136,9 +136,9 @@ Route::group(['prefix' => 'app'],function () {
 });
 
 Route::get('/client-theme.css', function () {
-    $hex = config('client.primary_hex', '#7A4A2F');
-    $hexSecondary = config('client.secondary_hex', '#e2d3c0');
-    $hexHighlight = config('client.highlight_color', '#3e5038fc');
+    $hex = config('client.primary_hex', '#754C9A'); // RGB (117, 76, 154)
+    $hexSecondary = config('client.secondary_hex', '#FFF');
+    $hexHighlight = config('client.highlight_color', '#9a72a8a4');
 
     $css = <<<CSS
     :root { 
@@ -180,7 +180,7 @@ Route::get('/client-theme.css', function () {
     /* Botão na cor do cliente */
     .btn-client {
     background-color: var(--client-color-secondary) !important;
-    border-color: var(--client-color-secondary) !important;
+    border-color: var(--client-color) !important;
     color: var(--client-color) !important;
     }
     .btn-client:hover,

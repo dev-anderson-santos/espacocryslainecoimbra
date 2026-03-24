@@ -1,12 +1,11 @@
 <?php
 namespace Database\Seeders;
 
-use App\Models\SettingsModel;
-use HourSeeder;
 use Illuminate\Database\Seeder;
-use RoomSeeder;
-use SettingsSeeder;
-use UserSeeder;
+use Database\Seeders\HourSeeder;
+use Database\Seeders\RoomSeeder;
+use Database\Seeders\SettingsSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {

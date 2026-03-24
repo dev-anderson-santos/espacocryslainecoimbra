@@ -54,8 +54,8 @@
                         {{-- <hr class="divider" /> --}}
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white mb-5"><b>O {{ config('app.name') }}</b> Terapêutico nasceu com o propósito de oferecer um ambiente acolhedor e profissional para o cuidado da saúde e do desenvolvimento humano. <br></p>
-                        <a class="btn btn-theme btn-xl" href="#about">Saiba mais</a>
+                        <p class="text-white mb-5"><b>O {{ config('app.name') }}</b> nasceu com o propósito de oferecer um ambiente acolhedor e profissional para o cuidado da saúde e do desenvolvimento humano. <br></p>
+                        <a class="btn btn-theme btn-xl" style="background-color: #fff; border-color: #fff" href="#about">Saiba mais</a>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,12 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="mt-0" style="color: #7A4A2F">Estrutura</h2>
+                        <h2 class="mt-0" style="color: #754C9A">Estrutura</h2>
                         <hr class="divider divider-light" />
-                        <p class="mb-4" style="color: #7A4A2F">
+                        <p class="mb-4" style="color: #754C9A">
                             <b>Contamos com salas aconchegantes, climatizadas e bem iluminadas, pensadas para garantir o bem-estar de profissionais e pacientes. 
                             O espaço inclui:</b>
-                            <ul style="color: #7A4A2F; text-align: left; display: inline-block; margin-top: 10px;">
+                            <ul style="color: #754C9A; text-align: left; display: inline-block; margin-top: 10px;">
                             <li>Salas de atendimento equipadas e multifuncionais</li>
                             <li>Recepção acolhedora para receber os pacientes</li>
                             <li>Cozinha e espaço para os profissionais</li>
@@ -143,8 +143,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/01.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/01.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -152,8 +152,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/02.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/02.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -161,8 +161,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/03.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/03.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -170,8 +170,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/04.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/04.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -179,8 +179,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/05.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/05.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -188,17 +188,8 @@
                         <a class="portfolio-box" href="{{ asset('images/salas/06.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
                             <img class="img-fluid" src="{{ asset('images/salas/06.jpeg') }}" alt="..." />
                             <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{ asset('images/salas/07.jpeg') }}" title="{{ app()->environment('APP_NAME') }}">
-                            <img class="img-fluid" src="{{ asset('images/salas/07.jpeg') }}" alt="..." />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Cultivar</div>
-                                <div class="project-name">Espaço</div>
+                                <div class="project-category text-white-50">Espaço</div>
+                                <div class="project-name">Cryslaine Coimbra</div>
                             </div>
                         </a>
                     </div>
@@ -210,11 +201,22 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="mt-0" style="color: #7A4A2F">Localização</h2>
+                        <h2 class="mt-0" style="color: #754C9A">Localização</h2>
                         <hr class="divider divider-light" />
-                        <p class="mb-4" style="color: #7A4A2F"><b>Estamos localizados no centro de Nova Iguaçu, em uma região de fácil acesso, próximo a pontos de transporte público e com opções de estacionamento. Uma localização estratégica que facilita a chegada de pacientes e profissionais, garantindo praticidade no dia a dia. Próximo a papelaria Tids e C&A.</b></p>
-                        {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.6768083693264!2d-43.446646103036635!3d-22.75960642196577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99670010b1275d%3A0x309493d995cb5039!2sR.%20Prof.%20Venina%20Correa%20Torres%2C%2017A%20-%20Centro%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026221-200!5e0!3m2!1spt-BR!2sbr!4v1650679236821!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d601.2174680267128!2d-43.44903548882779!3d-22.75931395142512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x996700c4af495b%3A0xc88baf13be3a2c0d!2sR.%20Maria%20Adelaide%20de%20Carvalho%2C%2020%20-%20Centro%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026210-070!5e1!3m2!1spt-BR!2sbr!4v1757802596578!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="mb-4" style="color: #754C9A">
+                            <b>
+                                Estamos localizados no centro de Nova Iguaçu, em uma região de fácil acesso, próximo a pontos de transporte público e com opções de estacionamento. Uma localização estratégica que facilita a chegada de pacientes e profissionais, garantindo praticidade no dia a dia. Próximo a papelaria Tids e C&A.
+                            </b>
+                        </p>
+
+                        <div class="map-responsive">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.9518952336716!2d-43.4651326117254!3d-22.6928346183117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99683f82c4e437%3A0xd833b59b065f1ca!2sR.%20Amazonas%2C%20313%20-%20Floresta%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026050-650!5e0!3m2!1spt-BR!2sbr!4v1774388545114!5m2!1spt-BR!2sbr"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,7 +236,7 @@
                         <h2 class="mt-0">Entre em contato!</h2>
                         <hr class="divider" />
                         <p class="text-muted mb-5">Pronto para iniciar seu próximo projeto conosco? Envie-nos uma mensagem e marque uma visita.</p>
-                        <a href="https://wa.me/5521986229578" class="btn btn-primary btn-icon-split" style="background-color: rgb(69 90 100)!important; border-color:rgb(69 90 100)!important; padding: 1.25rem 2.25rem;
+                        <a href="https://wa.me/5521968866718" target="_blank" class="btn btn-primary btn-icon-split" style="background-color: rgb(69 90 100)!important; border-color:rgb(69 90 100)!important; padding: 1.25rem 2.25rem;
                         font-size: 0.85rem;
                         font-weight: 700;
                         text-transform: uppercase;
@@ -267,7 +269,7 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
         <link rel="stylesheet" href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
-        <a id="robbu-whatsapp-button" target="_blank" href="https://api.whatsapp.com/send?phone=5521986229578&text=Olá, eu gostaria de agendar um horário.">
+        <a id="robbu-whatsapp-button" target="_blank" href="https://api.whatsapp.com/send?phone=5521968866718&text=Olá, eu gostaria de agendar um horário.">
         <div class="rwb-tooltip">Posso Ajudar?</div>
         <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
         </a>

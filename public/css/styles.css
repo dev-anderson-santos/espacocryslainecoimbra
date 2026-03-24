@@ -43,7 +43,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-primary-rgb: 244, 98, 58;
-  --bs-theme-rgb: 226, 211, 192;
+  --bs-theme-rgb: 190, 160, 192;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -3038,14 +3038,14 @@ textarea.form-control-lg {
   border-color: #f4623a;
 }
 .btn-theme {
-  color: #7A4A2F;
+  color: #754C9A;
   background-color: #e2d3c0;
   border-color: #e2d3c0;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #7A4A2F;
-  border-color: #7A4A2F;
+  background-color: #754C9A;
+  border-color: #754C9A;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -11335,7 +11335,7 @@ hr.divider {
   height: 0.2rem;
   max-width: 3.25rem;
   margin: 1.5rem auto;
-  background-color: #7A4A2F;
+  background-color: #754C9A;
   opacity: 1;
 }
 
@@ -11372,13 +11372,13 @@ hr.divider-light {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: rgba(122, 74, 47, 0.7);
+    color: rgba(117, 76, 154, 0.7);
   }
   #mainNav .navbar-brand:hover {
     color: #fff;
   }
   #mainNav .navbar-nav .nav-item .nav-link {
-    color: rgba(122, 74, 47, 0.7);
+    color: rgba(117, 76, 154, 0.7);
     padding: 0 1rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
@@ -11471,4 +11471,22 @@ header.masthead h1, header.masthead .h1 {
 }
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+.map-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }

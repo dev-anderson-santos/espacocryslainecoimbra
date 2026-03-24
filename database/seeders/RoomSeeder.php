@@ -1,4 +1,5 @@
 <?php
+namespace Database\Seeders;
 
 use App\Models\RoomModel;
 use Illuminate\Database\Seeder;

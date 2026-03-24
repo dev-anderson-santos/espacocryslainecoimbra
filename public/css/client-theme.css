@@ -25,7 +25,7 @@
 .btn-client-secondary {
   background-color: var(--client-color) !important;
   border-color: var(--client-color) !important;
-  color: var(--client-color-secondary) !important;
+  color: #fff !important;
 }
 .btn-client-secondary:hover,
 .btn-client-secondary:focus {

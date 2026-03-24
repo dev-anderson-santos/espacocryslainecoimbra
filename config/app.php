@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Cultivar Espaço'),
+    'name' => env('APP_NAME', 'Espaço Cryslaine Coimbra Agendamentos'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://espacocultivar.com'),
+    'url' => env('APP_URL', 'https://espacocryslainecoimbraagendamentos.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
