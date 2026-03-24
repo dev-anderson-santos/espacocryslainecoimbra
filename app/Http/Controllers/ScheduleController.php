@@ -550,7 +550,8 @@ class ScheduleController extends Controller
                 'concluidosParcialAgendamentos', 
                 'totalParcialValor', 
                 'concluidosAgendamentosMesAnterior', 
-                'totalMesAnterior'
+                'totalMesAnterior',
+                'setting'
             ));
     }
 

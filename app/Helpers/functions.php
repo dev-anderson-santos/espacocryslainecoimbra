@@ -500,7 +500,7 @@ if(!function_exists('excel')) {
 
 if(!function_exists('pdf')) {
 
-    function pdf($view, string $paper = 'a4', string $format = 'landscape', bool $showPagination)
+    function pdf($view, string $paper = 'a4', string $format = 'landscape', bool $showPagination = false)
     {
         return Pdf::loadHtml($view)->setPaper($paper, $format)->setOption(['enable_php' => $showPagination]);
             // ->setOptions([

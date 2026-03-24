@@ -14,7 +14,7 @@
 <div class="card">
     <div class="card-body">
 
-        @include('componentes.alerts')
+        {{-- @include('componentes.alerts') --}}
 
         @include('componentes.alerts', [
             'type' => 'alert-info',

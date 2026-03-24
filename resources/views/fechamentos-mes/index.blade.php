@@ -52,7 +52,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <span style="font-weight: 800">Vencimento: {{ now()->subMonthsNoOverflow()->endOfMonth()->addDays(5)->isoFormat('DD \d\e MMMM') }}</span>
+                <span style="font-weight: 800">Vencimento: Todo dia {{ $setting->dia_fechamento }} do mês</span>
             </div>
         </div>
         <div class="row">
