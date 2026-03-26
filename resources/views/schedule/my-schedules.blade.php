@@ -90,14 +90,14 @@
             'text' => 'O agendamento só pode ser cancelado até às '. \Carbon\Carbon::parse(\App\Models\SettingsModel::first()->hora_fechamento)->isoFormat('H\h') .' da data anterior a escolhida.'
         ])
 
-        <div class="clearfix">&nbsp;</div>
+        {{-- <div class="clearfix">&nbsp;</div>
         <div class="row">
             <div class="col-md-12">
                 <p>Oferecemos duas formas de agendamento para melhor atender sua necessidade:</p>
                 <p>O agendamento avulso garante a sala apenas na data e horário escolhidos.</p>
                 <p>O agendamento fixo reserva automaticamente o mesmo dia e horário toda semana, garantindo sua agenda recorrente.</p>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="clearfix">&nbsp;</div>
         <div class="row">
             <div class="col-md-12">
