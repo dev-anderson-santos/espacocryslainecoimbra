@@ -56,17 +56,7 @@ class MonitorScheduleMirrorCron extends Command
                                 ->get();
 
             if ($schedulesNextMonth->count() == 0) {
-                $message = 'Não há agendamentos para espelhar.';
-
-                ScheduleNextMonthMirrorLog::create([
-                    'message' => $message,
-                    'email' => 'dev.anderson.santos@gmail.com',
-                ]);
-
                 DB::commit();
-                
-                $this->info($message);
-
                 return;
             }
 
@@ -202,6 +192,7 @@ class MonitorScheduleMirrorCron extends Command
                                 SchedulesNextMonthModel::create($payload);
                             });
                         }
+                        now()->subMonths();
                     }
                 }
 
