@@ -19,6 +19,8 @@
                 <div class="col-md-6">
                     <label for="">Data:</label>
                     <input type="date" name="date" class="form-control" onkeypress="return false" onchange="$(this).parents('form').submit()">
+                    <input type="hidden" name="data_agendamento" id="data-agendamento" value={{ $_day ?? '' }}>
+                    {{-- <input type="text" name="date" id="datepicker" class="form-control" onkeypress="return false" onchange="$(this).parents('form').submit()"> --}}
                     {{-- <select class="form-control" name="day" id="data-agendamento" onchange="$(this).parents('form').submit()"">
                         <option value="">-- Selecione --</option>
                         @foreach ($dataSelect as $d)

@@ -277,12 +277,12 @@ return [
         //     'icon' => 'fas fa-calendar-alt',
         //     'can'  => 'is_admin'
         // ],
-        // [
-        //     'text' => 'Agenda - Consulta',
-        //     'url'  => '/app/schedule/schedule-search',
-        //     'icon' => 'fas fa-calendar-check',
-        //     'can'  => 'is_admin'
-        // ],
+        [
+            'text' => 'Agenda - Consulta',
+            'url'  => '/app/schedule/schedule-search',
+            'icon' => 'fas fa-calendar-check',
+            'can'  => 'is_admin'
+        ],
         [
             'text' => 'Fechamentos do mês',
             'url'  => '/app/schedule/fechamento-mes',
